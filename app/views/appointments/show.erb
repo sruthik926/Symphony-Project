@@ -1,0 +1,13 @@
+
+
+<%if session[:user_type] == "Student" %>
+
+Your appointment for <%= @appointment.subject_taught %> has been confirmed with  <%= @appointment.instructor.full_name %>
+
+<%= button_to "Back to Student Menu", student_path(current_user.id), :method => :get %> <br>
+<%end %>
+
+ <% if session[:user_type] == "Instructor" %>
+
+ Your appointment for <%= @appointment.subject_taught %> has been confirmed with <%= @appointment.student.full_name %>
+ <% end %>

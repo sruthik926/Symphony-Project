@@ -1,0 +1,23 @@
+List of Documents
+ <ol>
+
+   <% if @documents_in_my_cart %>
+  <% @documents_in_my_cart.each do |document| %>
+   <li> <%= document.name %> </li>
+      <% end %>
+    <% end %>
+</ol>
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>Document Name</th>
+    <th>Document Link</th>
+  </tr>
+
+ <% @documents.map do |document| %>
+  <tr> <td> <%= link_to document.name, document.link %> </td>
+  <td> <%= button_to "Add doc to my cart", add_document_to_cart_path, {method: :patch, params: {id: document.id}} %> </td>
+  </tr>
+<% end %>
