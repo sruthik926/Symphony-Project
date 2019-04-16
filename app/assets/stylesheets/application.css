@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ /* */
+ h1 {
+  color: beige
+ }
+ h2{
+  color: black
+ }
+
+ div {
+   text-align: center;
+ }
+ h4 {
+   text-align: right;
+   background-color: #FFEBCD;
+ }
+
+ .header {
+  height: 400px;
+  background-image: url('/assets/piano.jpg');
+  text-align: center;
+  background-size: cover;
+
+}
+body {
+    text-align: center;
+    background-color: #FFEBCD;
+}
+
+.form
+ {
+    margin-left: auto;
+    margin-right: auto;
+
+    position: absolute;
+    width: 50%;
+    text-align: right;
+    direction: ltr;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.top {
+  height: 400px;
+  width : 400px;
+  background-color: blue;
+}
+
+button {
+  align-self: center;
+  background-color: blue;
+}
+
+/* .button {
+  color :blue;
+  text-align: center;
+
+
+} */
+
+/* label{
+
+  width: 30%;
+  position: absolute;
+  left: 10%;
+  text-align: right;
+  margin-right: 30px;
+} */
+/* input[type=submit] {
+  position: absolute;
+  left: 85%;
+
+}
+/* input {
+  display: block;
+  direction: ltr;
+} */
+ /* div.settings {
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+}
+div.settings label       { text-align:right; }
+div.settings label:after { content: ":"; }
+
+
+
+ div.text label {
+ text-align: right;
+}
+
+ div.text input {
+ text-align: left;
+}
+ div.form
+{
+  display: block;
+  text-align: center;
+}
+ div {
+    position:relative;
+ } */
+ /* input {
+  clear: both;
+  float: right;
+  margin-bottom: 10px;
+  width: 100px;
+} */

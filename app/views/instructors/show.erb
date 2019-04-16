@@ -1,0 +1,7 @@
+<h2> HELLO <%= current_user.full_name %> ! </h2>
+
+
+  <%= button_to "View My Appointments", appointments_path, :method => :get %> <br>
+  <%= button_to "View All Students", students_path, :method => :get %> <br>
+  <%= button_to "Schedule Appointment", new_appointment_path, :method => :get %> <br>
+  <%= button_to "Upload Documents", new_document_path, :method => :get %> <br>

@@ -1,0 +1,34 @@
+<% if flash[:errors] %>
+ <%= @email %>
+<% flash[:errors].each do |err| %>
+      <%= err %> <br>
+  <% end %>
+<% end %>
+
+<div class=form>
+<%= form_for @instructor do |s| %>
+  <%= s.label 'First Name' %><br>
+  <%= s.text_field :first_name %><br>
+
+  <%= s.label 'Last Name' %><br>
+  <%= s.text_field :last_name %><br>
+
+  <%= s.label 'Email Address' %><br>
+  <%= s.text_field :email %><br>
+
+  <%= s.label 'Phone Number' %><br>
+  <%= s.text_field :phone_number %><br>
+
+  <%= s.label 'Subject Taught' %><br>
+  <%= s.text_field :phone_number %><br>
+
+  <%= s.label 'Password' %><br>
+  <%= s.password_field :password %> <br>
+
+  <%= s.label 'Password Confirmation' %><br>
+  <%= s.password_field :password_confirmation %> <br>
+
+  <%= s.submit  %>
+
+<% end %>
+ </div>

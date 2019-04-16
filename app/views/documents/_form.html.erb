@@ -1,0 +1,15 @@
+
+
+<%= form_for @document do |d| %> <br>
+  <%= d.label 'Document Name' %> <br>
+  <%= d.text_field :name %> <br>
+
+  <%= d.label 'Please Select Student' %> <br>
+  <%= d.collection_select(:student_id, Student.all, :id, :first_name) %> <br>
+
+ <%= d.label 'Document Link' %> <br>
+ <%= d.text_field :link %> <br>
+
+ <%= d.submit %>
+
+<% end %>

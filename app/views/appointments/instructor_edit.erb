@@ -1,0 +1,29 @@
+<center> <h2> Reschedule an Appointment </h2> </center>
+
+ <% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+        <%= err %>
+        <% end %>
+  <% end %>
+
+
+
+  <%= button_to "Back to Instructor Menu", instructor_path(current_user.id), :method => :get %> <br>
+
+  <%=  current_user.full_name %> <br>
+
+
+ <%= form_for @appointment do |a| %> <br>
+
+   <%= a.label 'Please Choose Student ' %><br>
+   <%= a.collection_select(:student_id, Student.all, :id, :first_name) %> <br>
+   <%= a.label 'Please Choose Subject' %><br>
+   <%= a.text_field :subject_taught %> <br>
+
+   <%= a.label 'Date' %><br>
+   <%= a.date_field :lesson_date %><br>
+
+   <%= a.submit "Reschedule Appointment" %>
+
+
+ <% end %>

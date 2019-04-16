@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SympProject</title>
+     <link rel="stylesheet" href="styles.css">
+      <div class="header">
+        <h1 id=centerDiv> <font size="9" > Symphony School of Music </font> </h1>
+        <h4> <text_align : right>
+             <% if current_user %>
+             <%= current_user.full_name %>
+             (<%= session[:user_type] %>)
+          <%= button_to 'Logout', session_path(session), method: :delete %>
+            <% end %>
+        </h2>
+      </div>
+       <div>
+       <h3> <%# if logged_in? %>
+        <%# current_user.full_name %> </h3> </div>
+        <%# end %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
