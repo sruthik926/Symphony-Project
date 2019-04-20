@@ -2,7 +2,8 @@ class DocumentsController < ApplicationController
 
 
   def index
-     @documents = Document.all
+     #@documents = Document.all
+     @documents = current_user.documents
      find_the_document
      #find_the_document
      render :index
@@ -33,6 +34,7 @@ class DocumentsController < ApplicationController
   # send_file("#{Rails.root}/public/IMG_6961.JPG", :type=>"jpg", :disposition=> "inline; filename=IMG_6961.JPG")
     # format.html { send_data @resource.body } # => Download the image file.
 
+          rails_blob_path(current_user.avatar, disposition: "attachment")
   end
 
  private

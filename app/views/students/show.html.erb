@@ -7,4 +7,4 @@
 <center> <div> <%= link_to "Edit My Profile", edit_student_path(@student.id) %></div> </center>
 <center> <div> <%= link_to "View My Appointments", appointments_path %> </div> </center>
 <center> <div> <%= link_to "Schedule Appointment", new_appointment_path %></div> </center>
-<center> <div> <%= link_to "View My Documents", documents_path %> </div> </center>
+<center> <div> <%= link_to "View My Documents", student_documents_path(@student) %> </div> </center>

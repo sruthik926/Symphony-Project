@@ -1,12 +1,8 @@
 class AppointmentsController < ApplicationController
 
   def index
-
-    # => @appointments = Appointment.where(instructor_id: instructor_id)
        @appointments = current_user.appointments
-       #@appointments = current_user.appointments.where(instructor_id: params[:appointment][:instructor_id])
-
-       #@appointments = current_user.appointments
+       #
        render :index
   end
 

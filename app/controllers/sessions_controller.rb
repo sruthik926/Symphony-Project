@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
 
   def create
+    byebug
     @student = Student.find_by(email: params[:email])
     @instructor = Instructor.find_by(email: params[:email])
 
@@ -37,6 +38,12 @@ class SessionsController < ApplicationController
     flash[:message] = 'You logged out.'
     redirect_to new_session_path
   end
+
+  # private
+  #
+  # def auth
+  #   request.env['omniauth.auth']
+  # end
 
 
 

@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   get 'send_data', to: 'documents#show', as: :send_data
   #patch 'update/appointments/:id',  to: 'appointments#update',  as: :update_appointment
 
+  #get ‘auth/:provider/callback’, to: 'sessions#googleAuth’
+  #get ‘auth/failure’, to: redirect(‘/’)
+
+  get '/auth/facebook/callback' => 'sessions#create'
+
+
+
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :students, only: [:index, :new, :show, :create, :edit, :update]
   resources :instructors, only: [:new, :show]
@@ -17,5 +25,9 @@ Rails.application.routes.draw do
   resources :instructors, only: [:new, :create]
   resources :documents, only: [:index, :new, :create, :edit]
 
-  # resources :appointments, only: [:destroy]
+  resources :students, only: [:show] do
+   # nested resource for documents
+   resources :documents, only: [:show, :index]
+ end
+
 end
