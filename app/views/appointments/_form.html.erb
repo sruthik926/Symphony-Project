@@ -1,0 +1,40 @@
+
+
+ <% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+        <%= err %>
+        <% end %>
+  <% end %>
+
+  <!-- flash error displayed - if any of those fields go blank -->
+
+
+   <!-- goes back to student path, show menu of student  -->
+  <%=  current_user.full_name %> <br>
+
+ <%= form_for @appointment do |a| %> <br>
+
+   <%= a.label 'Please Choose Subject' %><br>
+   <%= a.select :subject_taught, ["Indian Classical", "Western - Pop", "Western - Classical"] %> <br>
+
+   <%= a.label 'Date' %><br>
+  <%= a.date_field :lesson_date %><br>
+
+  <%= a.label 'Lesson Time' %> <br>
+  <%= a.select :time, ["9AM - 10AM", "10AM - 11AM", "11AM - 12PM", "1PM - 2PM", "2PM - 3PM", "3PM - 4PM"] %> <br>
+
+   <% if session[:user_type] == "Student" %>
+
+   <%=  a.label 'Please Choose Instructor' %><br>
+   <%= a.collection_select(:instructor_id, Instructor.all, :id, :full_name) %> <br>
+
+    <% else %>
+
+    <%= a.label 'Please Choose Student' %><br>
+    <%= a.collection_select(:student_id, Student.all, :id, :full_name) %> <br>
+
+    <% end %>
+
+   <%= a.submit %>
+
+ <% end %>

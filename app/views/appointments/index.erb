@@ -2,12 +2,17 @@
 <% if session[:user_type] == "Student" %>
 
   These are all of <%= current_user.full_name + "'s" %> appointments
-
+            <!-- if student is logged in, display all of student's appointments  -->
   <%=form_tag(search_appointment_path, :method => :get ) do %>
+         <!-- form tag - used for search forms - going to search action   -->
+        <!-- form tag - displayed on view appointments page,   -->
   <%= submit_tag 'Filter' %>
    <%= collection_select(:appointment, :instructor_id, Instructor.all, :id, :full_name,{:selected => session[:search_instructor]},{:prompt => 'Please select an Instructor'}) %>
+       <!-- dropdown - filter by Instructors , instructor information remains - after filter, unless they change it  -->
 From <%= date_field_tag :lesson_date, session[:search_date_from] %>
+     <!-- so the filtered data(from date) remains until they change   -->
 To <%= date_field_tag :to_lesson, session[:search_to_lesson] %>
+       <!-- so the filtered data(to date) remains until they change   -->
     <% end %>
 
   <table style="width:100%">
@@ -21,6 +26,7 @@ To <%= date_field_tag :to_lesson, session[:search_to_lesson] %>
     </tr>
     <tr>
       <% @appointments.each do |a| %>
+          <!--iterating through appointment array, displaying all the appointment info, using activerecord to retrieve instructor object based on student_id   -->
       <td> <%= Instructor.find(a.instructor_id).full_name %> </td>
           <td><%= a.subject_taught %></td>
           <td><%= a.lesson_date %></td>
@@ -36,6 +42,7 @@ To <%= date_field_tag :to_lesson, session[:search_to_lesson] %>
 
 
 <% else %>
+    <!--same as above but for instructor   -->
 
 These are all of <%= current_user.full_name + "'s" %> appointments
 
@@ -57,16 +64,20 @@ These are all of <%= current_user.full_name + "'s" %> appointments
     </tr>
     <tr>
       <% @appointments.each do |a| %>
+          <!--iterating through appointment array, displaying all the appointment info, using activerecord to retrieve student object based on student_id   -->
       <td> <%= Student.find(a.student_id).full_name %> </td>
           <td><%= a.subject_taught %></td>
           <td><%= a.lesson_date %></td>
           <td><%= a.time %></td>
           <td><%= button_to "Cancel Appointment", cancel_appointment_path(a.id), :method => :delete  %></td>
+               <!-- Button to delete appointment - button by default is post, so have to specify and say delete, goes to appointment destroy,   -->
           <td><%= button_to "Reschedule Appointment", edit_appointment_path(a.id), :method => :get %> </td>
+             <!-- Button to reschedule appointment - button by default is post, so have to specify and say delete, goes to appointment edit,   -->
     </tr>
       <% end %>
 
   </table>
   <%= button_to "Back to Instructor Menu", instructor_path(current_user.id), :method => :get %>
+      <!-- Button to go back to Instructor Menu - button by default is post, so have to specify and say get , goes to instructor show path  -->
 
 <% end  %>

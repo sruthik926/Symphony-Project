@@ -1,34 +1,37 @@
+  <!-- not using this anywhere -->
+
+
+
 <% if flash[:errors] %>
- <%= @email %>
 <% flash[:errors].each do |err| %>
       <%= err %> <br>
   <% end %>
 <% end %>
 
 <div class=form>
-<%= form_for @instructor do |s| %>
-  <%= s.label 'First Name' %><br>
-  <%= s.text_field :first_name %><br>
+<%= form_for @instructor do |i| %>
+  <%= i.label 'First Name' %><br>
+  <%= i.text_field :first_name %><br>
 
-  <%= s.label 'Last Name' %><br>
-  <%= s.text_field :last_name %><br>
+  <%= i.label 'Last Name' %><br>
+  <%= i.text_field :last_name %><br>
 
-  <%= s.label 'Email Address' %><br>
-  <%= s.text_field :email %><br>
+  <%= i.label 'Email Address' %><br>
+  <%= i.text_field :email %><br>
 
-  <%= s.label 'Phone Number' %><br>
-  <%= s.text_field :phone_number %><br>
+  <%= i.label 'Phone Number' %><br>
+  <%= i.text_field :phone_number %><br>
 
-  <%= s.label 'Subject Taught' %><br>
-  <%= s.text_field :phone_number %><br>
+  <%= i.label 'Subject Taught' %><br>
+  <%= i.text_field :phone_number %><br>
 
-  <%= s.label 'Password' %><br>
-  <%= s.password_field :password %> <br>
+  <%= i.label 'Password' %><br>
+  <%= i.password_field :password %> <br>
 
-  <%= s.label 'Password Confirmation' %><br>
-  <%= s.password_field :password_confirmation %> <br>
+  <%= i.label 'Password Confirmation' %><br>
+  <%= i.password_field :password_confirmation %> <br>
 
-  <%= s.submit  %>
+  <%= i.submit  %>
 
 <% end %>
  </div>

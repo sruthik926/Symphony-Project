@@ -1,14 +1,14 @@
 class StaticController < ApplicationController
+    #don't need to be logged in/authorized to view welcome page
    skip_before_action :authorized
 
-  # def about
-  #   render :about_page
-  # end
 
   def welcome
+     #destroy the session email ?
     session.delete(:email)
-    # session_path(session)
+     
     render :welcome_page
+     #display welcome page - static , which has links to login, login to facebook, regsiter new student
   end
 
 

@@ -1,12 +1,17 @@
 
+<!--displaying flash errors -  -->
+
 <% if flash[:errors] %>
 <% flash[:errors].each do |err| %>
       <%= err %> <br>
   <% end %>
 <% end %>
 
+
+<!--student object - form   -->
 <div class=form>
 <%= form_for @student do |s| %>
+
   <%= s.label 'First Name' %>
   <%= s.text_field :first_name %><br>
 

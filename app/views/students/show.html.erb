@@ -1,3 +1,7 @@
+
+<%=flash[:sign] %>
+<!--this is displayed when profile is updated -  -->
+
 <center> <h2> Welcome <%= @student.full_name %> </h2> </center>
 
 
@@ -5,6 +9,11 @@
 
 
 <center> <div> <%= link_to "Edit My Profile", edit_student_path(@student.id) %></div> </center>
+ <!--link to view edit profile - going to edit path of student,  -  -->
 <center> <div> <%= link_to "View My Appointments", appointments_path %> </div> </center>
+ <!-- link to view all appointments -  appointment index page -->
 <center> <div> <%= link_to "Schedule Appointment", new_appointment_path %></div> </center>
+  <!-- link to schedule appt - appointment new   -->
 <center> <div> <%= link_to "View My Documents", student_documents_path(@student) %> </div> </center>
+
+ <!-- link to view documents, going to student document path, display all documents for that particular student nested resource,   -->

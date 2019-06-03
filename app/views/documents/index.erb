@@ -1,14 +1,14 @@
 List of Documents
  <ol>
+   <!-- if there is anything(objects) in the array, iterate through it, and print out each document name along with link to email documents ) -->
 
    <% if @documents_in_my_cart %>
   <% @documents_in_my_cart.each do |document| %>
    <%= document.name %> <br>
       <% end %>
-  <%= button_to "Email Documents" %>
+  <%= link_to "Email Documents" %>
     <% end %>
 </ol>
-
 
 
 <table style="width:100%">
@@ -16,6 +16,9 @@ List of Documents
     <th>Document Name</th>
     <th>Document Link</th>
   </tr>
+
+  <!-- iterates through all documents(of current_user) and set a link to for each one, goes to send_data path, (documents #show) -->
+  <!-- button to - add doc to my cart - which gors to update action of cart - the params (id of each doc is accesxsible, so sending params to controller,) ) -->
 
  <% @documents.map do |document| %>
   <tr> <td> <%= link_to document.name, send_data_path %> </td>

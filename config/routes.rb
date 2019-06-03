@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'cancel/appointments/:id', to: 'appointments#destroy', as: :cancel_appointment
   get 'search/appointment', to: 'appointments#search', as: :search_appointment
   get 'send_data', to: 'documents#show', as: :send_data
+  get 'all_students', to: 'students#all_students', as: :all_students
   #patch 'update/appointments/:id',  to: 'appointments#update',  as: :update_appointment
 
   #get ‘auth/:provider/callback’, to: 'sessions#googleAuth’
@@ -29,5 +30,11 @@ Rails.application.routes.draw do
    # nested resource for documents
    resources :documents, only: [:show, :index]
  end
+
+ resources :instructors, only: [:show] do
+  # nested resource for documents
+  resources :documents, only: [:show, :new]
+end
+
 
 end

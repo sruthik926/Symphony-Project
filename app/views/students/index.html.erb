@@ -6,8 +6,10 @@
 </div> -->
 
 <% if session[:user_type] == "Instructor" %>
+ <!--if instructor is logged in, back to instructor menu -  -->
 <%= button_to "Back to Instructor Menu", instructor_path(current_user.id), :method => :get %>
 
+<!--displaying all student info on index erb, iterating thorugh student array,   -->
 
 <table style="width:100%">
   <tr>
