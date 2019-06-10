@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def find_the_document
     @documents_in_my_cart = Document.find(cart)
-    #returns an array of all document objects - find takes an array - cart is an array of ids use this in the document index erb 
+    #returns an array of all document objects - find takes an array - cart is an array of ids use this in the document index erb
   end
 
 end

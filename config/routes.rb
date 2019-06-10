@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'search/appointment', to: 'appointments#search', as: :search_appointment
   get 'send_data', to: 'documents#show', as: :send_data
   get 'all_students', to: 'students#all_students', as: :all_students
+  get '/search', to: 'searches#search', as: :search
+  post '/search', to: 'searches#foursquare'
+  get '/admin', to: 'admin#index'
+  get 'admin/show_students', to: 'admin#show_students'
+
   #patch 'update/appointments/:id',  to: 'appointments#update',  as: :update_appointment
 
   #get ‘auth/:provider/callback’, to: 'sessions#googleAuth’
@@ -19,12 +24,14 @@ Rails.application.routes.draw do
 
 
 
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :students, only: [:index, :new, :show, :create, :edit, :update]
   resources :instructors, only: [:new, :show]
   resources :appointments, only: [:index, :new, :show, :create, :edit, :update]
   resources :instructors, only: [:new, :create]
   resources :documents, only: [:index, :new, :create, :edit]
+  # resources :admin, only: [:index]
 
   resources :students, only: [:show] do
    # nested resource for documents

@@ -37,11 +37,18 @@ gem 'omniauth-facebook'
 
 gem 'dotenv-rails'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -12,8 +12,14 @@ class StudentsController < ApplicationController
  def index
   @students = Student.all.active
    #student objects -  being retrived from db,  - all in an array
-  render :index
+   # render :index
    #display/render student index.erb
+   # render html
+   # respond_to do |f|
+   #   f.html
+   #   f.json {render json: @students}
+   # end
+    render json: @students
  end
 
  def all_students

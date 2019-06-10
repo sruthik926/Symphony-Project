@@ -1,3 +1,4 @@
+
   <!-- <div>
   <h1> Student List </h1>
    @students.each do |student| %>
@@ -6,26 +7,26 @@
 </div> -->
 
 <% if session[:user_type] == "Instructor" %>
- <!--if instructor is logged in, back to instructor menu -  -->
+<!--if instructor is logged in, back to instructor menu -  -->
 <%= button_to "Back to Instructor Menu", instructor_path(current_user.id), :method => :get %>
 
 <!--displaying all student info on index erb, iterating thorugh student array,   -->
 
 <table style="width:100%">
-  <tr>
-    <th>Student First Name</th>
-    <th>Student Last Name</th>
-    <th>Student Email </th>
-    <th>Student Phone Number </th>
-  </tr>
-  <tr>
-    <% @students.each do |s| %>
-    <td> <%= s.first_name %> </td>
-        <td><%= s.last_name %></td>
-        <td><%= s.email %></td>
-        <td><%= s.phone_number %></td>
-  </tr>
-    <% end %>
+<tr>
+<th>Student First Name</th>
+<th>Student Last Name</th>
+<th>Student Email </th>
+<th>Student Phone Number </th>
+</tr>
+<tr>
+<% @students.each do |s| %>
+<td> <%= s.first_name %> </td>
+    <td><%= s.last_name %></td>
+    <td><%= s.email %></td>
+    <td><%= s.phone_number %></td>
+</tr>
+<% end %>
 
 </table>
 
