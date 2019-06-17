@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
  before_action :find_student, only: [:show, :edit, :update]
 
  def new
-     @student = Student.new
+       @student = Student.new
     # student object is being instantiated - empty object at this point - this passed in through
    # render :new
     #student new.erb is being displayed
@@ -35,10 +35,11 @@ end
    @student = Student.find(params[:id])
    # render :show
    #render student show.erb
+   render json: @student
  end
 
  def create
-  @student = Student.new(student_params)
+  @student = Student.create(student_params)
     #student object is created - strong params are being used
 
   if @student.valid?
@@ -47,8 +48,10 @@ end
     session[:email] = @student.email
     session[:name] = @student.full_name
     session[:user_type] = "Student"
-    redirect_to @student
-     #redirect to student show page
+    # redirect_to @student
+    #  redirect to student show page
+
+     render json: @student
   else
     flash[:errors] = @student.errors.full_messages
      #show error messages
@@ -90,6 +93,7 @@ end
      #if successfully ypdated, then display message
     flash[:sign] = "Your profile has been updated."
     redirect_to student_path(@student)
+    # render json @student
      #redirect to student show page
   else
     flash[:errors] = @student.errors.full_messages

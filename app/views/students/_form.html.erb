@@ -9,8 +9,8 @@
 
 
 <!--student object - form   -->
-<div class=form>
-<%= form_for @student do |s| %>
+<!-- <div class=form> -->
+<%= form_for @student, :html => {:id => "new_student"} do |s| %>
 
   <%= s.label 'First Name' %>
   <%= s.text_field :first_name %><br>
@@ -33,7 +33,7 @@
   <%= s.label 'Password Confirmation' %>
   <%= s.password_field :password_confirmation %> <br>
 
-  <%= s.submit  %>
 
+  <%= s.submit %>
 <% end %>
- </div>
+ <!-- </div> -->

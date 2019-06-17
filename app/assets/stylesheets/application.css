@@ -14,7 +14,7 @@
  *= require_self
  /* */
  h1 {
-  color: beige
+  color: black
  }
  h2{
   color: black
@@ -58,21 +58,19 @@ table, th, td {
 .top {
   height: 400px;
   width : 400px;
-  background-color: blue;
+  background-color: black;
 }
-
-button {
-  align-self: center;
-  background-color: blue;
+.info{
+position:fixed;
+top:0;
+left:0;
 }
-
-/* .button {
-  color :blue;
-  text-align: center;
-
-
+li{
+list-style-type:none;
+}
+/* button {
+  display: inline-block;
 } */
-
 /* label{
 
   width: 30%;

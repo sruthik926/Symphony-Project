@@ -37,6 +37,7 @@ class SessionsController < ApplicationController
         session[:name] = @student.full_name
         session[:user_type] = "Student"
         redirect_to @student
+        # render json: @student
 
       #otherwise instructor obkject exists and instructor password is matched against the password digest, store instructor info in session
       #redirect to instructor show page

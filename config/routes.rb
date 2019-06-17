@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/search', to: 'searches#search', as: :search
   post '/search', to: 'searches#foursquare'
   get '/admin', to: 'admin#index'
-  get 'admin/show_students', to: 'admin#show_students'
+  # get 'admin/show_students', to: 'admin#show_students'
 
   #patch 'update/appointments/:id',  to: 'appointments#update',  as: :update_appointment
 
