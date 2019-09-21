@@ -24,7 +24,39 @@ $(document).ready(function(){
                  // console.log(studentHtml)
             })
           })
-     })
+    })
+    $('#sorted_students').on('click', (e) => {
+       // alert("You Clicked View students");
+           e.preventDefault()
+           fetch(`/students.json`)
+             .then(res => res.json())
+               .then(students => {
+                 // $('#app-container').html('')
+                 students.sort(function(a, b) {
+                   // console.log(a);
+                   // console.log(b);
+                   var nameA = a.first_name.toUpperCase(); // ignore upper and lowercase
+                   var nameB = b.first_name.toUpperCase(); // ignore upper and lowercase
+                      if (nameA < nameB) {
+                        return -1;
+                      }
+                      if (nameA > nameB) {
+                        return 1;
+                      }
+
+                      // names must be equal
+                      return 0;
+                    });
+
+                  students.forEach(student => {
+                    let newStudent = new Student(student)
+                    let studentHtml = newStudent.formatIndex()
+                    $('#app-container').append(studentHtml)
+                    // console.log(studentHtml)
+               })
+             })
+       })
+
      $("#new_student").on("submit", function(e) {
         e.preventDefault()
         // alert("Inside Submit");
