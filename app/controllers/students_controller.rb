@@ -16,19 +16,30 @@ class StudentsController < ApplicationController
  end
 
  def create
-  @student = Student.create(student_params)
+  # @student = Student.create(student_params)
+    @student = Student.new(student_params)
+  # if @student.save!
+  #   UserMailer.welcome_message(@student).deliver
+  #   redirect_to @student, notice:'Signed up successfully'
+  # else
+  #   render :new
+  # end
+
 
   #@email = student_params[:email]
-  if @student.valid?
+  if @student.save
     session[:student_id] = @student.id
     session[:email] = @student.email
     session[:name] = @student.full_name
     session[:user_type] = "Student"
-    redirect_to @student
+    UserMailer.welcome_message(@student).deliver_now
+    redirect_to @student, notice: 'Successfully Signed up.'
   else
     flash[:errors] = @student.errors.full_messages
     render :new
   end
+
+
  end
 
  # def login
