@@ -28,11 +28,12 @@ class StudentsController < ApplicationController
 
   #@email = student_params[:email]
   if @student.save
+    email = UserMailer.welcome_message(@student)
+    email.deliver_now
     session[:student_id] = @student.id
     session[:email] = @student.email
     session[:name] = @student.full_name
     session[:user_type] = "Student"
-    UserMailer.welcome_message(@student).deliver_now
     redirect_to @student, notice: 'Successfully Signed up.'
   else
     flash[:errors] = @student.errors.full_messages

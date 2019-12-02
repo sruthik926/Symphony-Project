@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+   default from: 'symphonyschool123@gmail.com'
 
   def welcome_message(student)
     @student = student
